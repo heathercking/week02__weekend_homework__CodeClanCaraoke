@@ -77,6 +77,8 @@ class TestRoom(unittest.TestCase):
     def test_check_room_has_capacity_for_all_guests__False(self):
         self.assertEqual(False, self.room_1.check_room_has_capactiy(25))
 
+
+
     
      
     

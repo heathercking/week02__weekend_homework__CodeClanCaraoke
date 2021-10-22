@@ -22,10 +22,18 @@ class TestGuest(unittest.TestCase):
     def test_guest_has_wallet(self):
         self.assertEqual(20.00, self.guest_1.wallet)
 
-    def test_guest_can_pay_entry_fee(self):
+    def test_guest_can_pay_entry_fee__sufficient_funds(self):
         self.guest_1.pay_entry_fee(10.00)
         self.assertEqual(10.00, self.guest_1.wallet)
 
-    # def test_guest_has_sufficient_funds(self):
-    #     entry_fee = 10.00
-    #     self.assertEqual(True, self.guest_1.check_sufficient_funds(entry_fee))
+    def test_guest_can_pay_entry_fee__insufficient_funds(self):
+        self.guest_5.pay_entry_fee(10.00)
+        self.assertEqual(5.00, self.guest_5.wallet)
+
+    def test_guest_has_sufficient_funds__True(self):
+        entry_fee = 10.00
+        self.assertEqual(True, self.guest_1.check_sufficient_funds(entry_fee))
+
+    def test_guest_has_sufficient_funds__False(self):
+        entry_fee = 10.00
+        self.assertEqual(False, self.guest_5.check_sufficient_funds(entry_fee))
