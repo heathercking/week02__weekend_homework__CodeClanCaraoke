@@ -6,7 +6,10 @@ from classes.song import Song
 class TestRoom(unittest.TestCase):
     
     def setUp(self):
-        self.room_1 = Room("Muppet Theatre", 50)
+        self.room_1 = Room("Muppet Theatre", 20)
+        self.room_2 = Room("The Stage", 15)
+        self.room_3 = Room("The Attic", 10)
+
 
         self.guest_1 = Guest("Kermit the Frog", 32)
         self.guest_2 = Guest("Miss Piggy", 29)
@@ -25,15 +28,15 @@ class TestRoom(unittest.TestCase):
         self.assertEqual("Muppet Theatre", self.room_1.name)
     
     def test_room_has_max_capacity(self):
-        self.assertEqual(50, self.room_1.max_capacity)
+        self.assertEqual(20, self.room_1.max_capacity)
     
     def test_add_guest_to_room(self):
         self.room_1.add_guest_to_room(self.guest_1)
         self.assertEqual(1, len(self.room_1.guest_list))
 
-    def test_add_guest_to_room__capacity_free_spaces_decreases(self):
+    def test_add_guest_to_room__free_spaces_decreases(self):
         self.room_1.add_guest_to_room(self.guest_1)
-        self.assertEqual(49, self.room_1.free_spaces)
+        self.assertEqual(19, self.room_1.free_spaces)
     
     def test_remove_guest_from_room(self):
         self.room_1.add_guest_to_room(self.guest_1)
@@ -46,7 +49,7 @@ class TestRoom(unittest.TestCase):
         self.room_1.add_guest_to_room(self.guest_2)
         self.room_1.add_guest_to_room(self.guest_3)
         self.room_1.remove_guest_from_room(self.guest_1)
-        self.assertEqual(48, self.room_1.free_spaces)
+        self.assertEqual(18, self.room_1.free_spaces)
 
     def test_add_song_to_room(self):
         self.room_1.add_song_to_room(self.song_1)
@@ -57,3 +60,15 @@ class TestRoom(unittest.TestCase):
         self.room_1.add_song_to_room(self.song_2)      
         self.room_1.remove_song_from_room(self.song_1)
         self.assertEqual(1, len(self.room_1.song_list))
+
+    def test_check_room_has_capacity_for_all_guests__True(self):
+        self.assertEqual(True, self.room_1.check_room_has_capactiy(20))
+    
+    def test_check_room_has_capacity_for_all_guests__False(self):
+        self.assertEqual(False, self.room_1.check_room_has_capactiy(25))
+
+    
+     
+    
+
+
