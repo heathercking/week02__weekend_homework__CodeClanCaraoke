@@ -5,3 +5,9 @@ class Room:
         self.max_capacity = max_capacity
         self.guest_list = []
         self.free_spaces = 0
+
+
+    def add_guest_to_room(self, guest):
+        self.guest_list.append(guest)
+    
+    
