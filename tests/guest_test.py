@@ -4,15 +4,19 @@ from classes.guest import Guest
 class TestGuest(unittest.TestCase):
     
     def setUp(self):
-        self.guest_1 = Guest("Kermit the Frog", 32)
-        self.guest_2 = Guest("Miss Piggy", 29)
-        self.guest_3 = Guest("Fozzie the Bear", 40)
-        self.guest_4 = Guest("Beaker", 17)
-        self.guest_5 = Guest("The Swedish Chef", 35)
+        self.guest_1 = Guest("Kermit the Frog", 32, 20.00)
+        self.guest_2 = Guest("Miss Piggy", 29, 10.00)
+        self.guest_3 = Guest("Fozzie the Bear", 40, 15.00)
+        self.guest_4 = Guest("Beaker", 17, 30.00)
+        self.guest_5 = Guest("The Swedish Chef", 35, 5.00)
     
     def test_guest_has_name(self):
         self.assertEqual("Kermit the Frog", self.guest_1.name)
 
     def test_guest_has_age(self):
         self.assertEqual(32, self.guest_1.age)
+
+    def test_guest_has_wallet(self):
+        self.assertEqual(20.00, self.guest_1.wallet)
+
     
