@@ -9,3 +9,10 @@ class TestGuest(unittest.TestCase):
         self.guest_3 = Guest("Fozzie the Bear", 40)
         self.guest_4 = Guest("Beaker", 17)
         self.guest_5 = Guest("The Swedish Chef", 35)
+    
+    def test_guest_has_name(self):
+        self.assertEqual("Kermit the Frog", self.guest_1.name)
+
+    def test_guest_has_age(self):
+        self.assertEqual(32, self.guest_1.age)
+    

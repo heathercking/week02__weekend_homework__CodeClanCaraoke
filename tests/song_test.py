@@ -9,3 +9,7 @@ class TestSong(unittest.TestCase):
         self.song_3 = Song("Together Again")
         self.song_4 = Song("Happiness Hotel")
         self.song_5 = Song("It's Not Easy Being Green")
+    
+    def test_song_has_name(self):
+        self.assertEqual("The Muppet Show Theme", self.song_1.name)
+    
