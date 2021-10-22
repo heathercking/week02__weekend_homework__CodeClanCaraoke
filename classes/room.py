@@ -20,4 +20,7 @@ class Room:
     def add_song_to_room(self, input_song):
         self.song_list.append(input_song)
     
-    
+    def remove_song_from_room(self, input_song):
+        self.song_list.remove(input_song)
+
+
