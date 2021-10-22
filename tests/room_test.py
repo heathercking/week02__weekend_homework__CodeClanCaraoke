@@ -30,12 +30,23 @@ class TestRoom(unittest.TestCase):
     def test_add_guest_to_room(self):
         self.room_1.add_guest_to_room(self.guest_1)
         self.assertEqual(1, len(self.room_1.guest_list))
+
+    def test_add_guest_to_room__capacity_free_spaces_decreases(self):
+        self.room_1.add_guest_to_room(self.guest_1)
+        self.assertEqual(49, self.room_1.free_spaces)
     
     def test_remove_guest_from_room(self):
         self.room_1.add_guest_to_room(self.guest_1)
         self.room_1.add_guest_to_room(self.guest_2)
         self.room_1.remove_guest_from_room(self.guest_1)
         self.assertEqual(1, len(self.room_1.guest_list))
+    
+    def test_remove_guest_from_room__free_spaces_increases(self):
+        self.room_1.add_guest_to_room(self.guest_1)
+        self.room_1.add_guest_to_room(self.guest_2)
+        self.room_1.add_guest_to_room(self.guest_3)
+        self.room_1.remove_guest_from_room(self.guest_1)
+        self.assertEqual(48, self.room_1.free_spaces)
 
     def test_add_song_to_room(self):
         self.room_1.add_song_to_room(self.song_1)
