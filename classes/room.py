@@ -39,4 +39,17 @@ class Room:
         else:
             return False
 
+    def view_room_song_list(self):
+        for song in self.song_list:
+            print(song.name)
 
+    def favourite_song_check(self, input_song):
+        for song in self.song_list:
+            if input_song == song:
+                return "Yaaaas"
+            # if input_song != song:
+            #     return "No"
+
+    
+        
+    

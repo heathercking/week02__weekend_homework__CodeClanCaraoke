@@ -1,6 +1,8 @@
 import unittest
 from classes.guest import Guest
 from classes.karaoke_bar import Karaoke_Bar
+from classes.room import Room
+from classes.song import Song
 
 class TestGuest(unittest.TestCase):
     
@@ -12,6 +14,8 @@ class TestGuest(unittest.TestCase):
         self.guest_5 = Guest("The Swedish Chef", 35, 5.00)
 
         self.mykaraoke = Karaoke_Bar("CodeClan Caraoke")
+        self.room_1 = Room("Muppet Theatre", 20)
+        self.song_2 = Song("Mah Na Mah Na")
     
     def test_guest_has_name(self):
         self.assertEqual("Kermit the Frog", self.guest_1.name)
@@ -37,3 +41,6 @@ class TestGuest(unittest.TestCase):
     def test_guest_has_sufficient_funds__False(self):
         entry_fee = 10.00
         self.assertEqual(False, self.guest_5.check_sufficient_funds(entry_fee))
+
+    # def test_favourite_song_reaction(self):
+    #     self.assertEqual("Yaaaas", self.guest_1.favourite_song_reaction())

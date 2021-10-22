@@ -77,6 +77,23 @@ class TestRoom(unittest.TestCase):
     def test_check_room_has_capacity_for_all_guests__False(self):
         self.assertEqual(False, self.room_1.check_room_has_capactiy(25))
 
+    def test_view_room_song_list__contains_favourite_song(self):
+        self.room_1.add_song_to_room(self.song_1)  
+        self.room_1.add_song_to_room(self.song_2)
+        self.room_1.add_song_to_room(self.song_3) 
+        self.room_1.view_room_song_list()
+
+    def test_favourite_song_check__favourite_song_in_list(self):
+        self.room_1.add_song_to_room(self.song_1)  
+        self.room_1.add_song_to_room(self.song_2)
+        self.room_1.add_song_to_room(self.song_3) 
+        self.assertEqual("Yaaaas", self.room_1.favourite_song_check(self.song_2))
+    
+    # def test_favourite_song_check__favourite_song_not_in_list(self):
+    #     self.room_1.add_song_to_room(self.song_1.name)  
+    #     self.room_1.add_song_to_room(self.song_3.name) 
+    #     self.assertEqual("Add it!", self.room_1.favourite_song_check(self.song_2.name))
+        
 
 
     

@@ -17,3 +17,10 @@ class Guest:
             return True
         else:
             return False
+
+    # def favourite_song_reaction(self):
+    #     return "Yaaaas"
+
+        
+
+    
