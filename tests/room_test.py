@@ -10,7 +10,6 @@ class TestRoom(unittest.TestCase):
         self.room_2 = Room("The Stage", 15)
         self.room_3 = Room("The Attic", 10)
 
-
         self.guest_1 = Guest("Kermit the Frog", 32)
         self.guest_2 = Guest("Miss Piggy", 29)
         self.guest_3 = Guest("Fozzie the Bear", 40)
@@ -34,7 +33,7 @@ class TestRoom(unittest.TestCase):
         self.room_1.add_guest_to_room(self.guest_1)
         self.assertEqual(1, len(self.room_1.guest_list))
 
-    def test_add_guest_to_room__free_spaces_decreases(self):
+    def test_add_guest_to_room__free_spaces_decrease(self):
         self.room_1.add_guest_to_room(self.guest_1)
         self.assertEqual(19, self.room_1.free_spaces)
     
@@ -44,7 +43,7 @@ class TestRoom(unittest.TestCase):
         self.room_1.remove_guest_from_room(self.guest_1)
         self.assertEqual(1, len(self.room_1.guest_list))
     
-    def test_remove_guest_from_room__free_spaces_increases(self):
+    def test_remove_guest_from_room__free_spaces_increase(self):
         self.room_1.add_guest_to_room(self.guest_1)
         self.room_1.add_guest_to_room(self.guest_2)
         self.room_1.add_guest_to_room(self.guest_3)
