@@ -12,11 +12,11 @@ class TestKaraokeBar(unittest.TestCase):
         self.room_2 = Room("The Stage", 3, 100.00)
         self.room_3 = Room("The Attic", 2, 100.00)
 
-        self.guest_1 = Guest("Kermit the Frog", 32, 20.00)
-        self.guest_2 = Guest("Miss Piggy", 29, 10.00)
-        self.guest_3 = Guest("Fozzie the Bear", 40, 15.00)
-        self.guest_4 = Guest("Beaker", 17, 30.00)
-        self.guest_5 = Guest("The Swedish Chef", 35, 5.00)
+        self.guest_1 = Guest("Kermit the Frog", 32, 20.00, True)
+        self.guest_2 = Guest("Miss Piggy", 29, 10.00, True)
+        self.guest_3 = Guest("Fozzie the Bear", 40, 15.00, True)
+        self.guest_4 = Guest("Beaker", 17, 30.00, True)
+        self.guest_5 = Guest("The Swedish Chef", 35, 5.00, False)
 
 
     def test_karaoke_bar_has_name(self):

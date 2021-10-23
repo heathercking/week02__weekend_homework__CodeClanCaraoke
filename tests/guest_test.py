@@ -7,11 +7,11 @@ from classes.song import Song
 class TestGuest(unittest.TestCase):
     
     def setUp(self):
-        self.guest_1 = Guest("Kermit the Frog", 32, 20.00)
-        self.guest_2 = Guest("Miss Piggy", 29, 10.00)
-        self.guest_3 = Guest("Fozzie the Bear", 40, 15.00)
-        self.guest_4 = Guest("Beaker", 17, 30.00)
-        self.guest_5 = Guest("The Swedish Chef", 35, 5.00)
+        self.guest_1 = Guest("Kermit the Frog", 32, 20.00, True)
+        self.guest_2 = Guest("Miss Piggy", 29, 10.00, True)
+        self.guest_3 = Guest("Fozzie the Bear", 40, 15.00, True)
+        self.guest_4 = Guest("Beaker", 17, 30.00, True)
+        self.guest_5 = Guest("The Swedish Chef", 35, 5.00, False)
 
         self.mykaraoke = Karaoke_Bar("CodeClan Caraoke", 100.00)
         self.room_1 = Room("Muppet Theatre", 20, 100.00)
@@ -32,3 +32,6 @@ class TestGuest(unittest.TestCase):
 
     def test_favourite_song_reaction(self):
         self.assertEqual("Yaaaas", self.guest_1.favourite_song_reaction())
+    
+    def test_guest_has_entry_fee_paid_status(self):
+        self.assertEqual(True, self.guest_1.entry_fee_paid)
