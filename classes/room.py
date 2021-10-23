@@ -67,3 +67,6 @@ class Room:
     def check_guest_has_sufficient_funds(self, input_guest, input_fee):
         return input_guest.wallet >= input_fee
     
+    def check_guest_is_old_enough_to_drink(self, input_guest):
+        return input_guest.age >= 18
+    
