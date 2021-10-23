@@ -145,5 +145,3 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(1, len(self.room_1.guests_owing_fee))
         self.assertEqual(10.00, self.guest_5.guest_tab)
     
-    def test_check_guest_is_old_enough_to_buy_alcohol(self):
-        self.assertEqual(True, self.room_1.check_guest_is_old_enough_to_drink(self.guest_1))

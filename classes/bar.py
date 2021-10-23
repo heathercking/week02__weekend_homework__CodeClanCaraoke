@@ -5,4 +5,16 @@ class Bar:
         self.till = till
         self.bar_tab = 0
 
-    
+    def check_guest_is_old_enough_to_drink(self, input_guest):
+        return input_guest.age >= 18
+
+    def serve_guest_drink(self, input_guest, input_drink):
+        if self.check_guest_is_old_enough_to_drink(input_guest) == True:
+            input_guest.buy_drink(input_drink)
+
+    def add_drink_to_tab_check(self):
+        pay_by_tab = input("Would you like to add this to your tab? ")
+        if pay_by_tab == "yes":
+            return True
+        # elif pay_by_tab == "no":
+        #     return False
