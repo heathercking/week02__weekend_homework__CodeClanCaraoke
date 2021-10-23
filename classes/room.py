@@ -13,12 +13,15 @@ class Room:
 
 
     def add_guest_to_room(self, input_guest):
+        entry_fee = 10.00
         if self.free_spaces > 0:
-            self.collect_entry_fee(input_guest, 10.00)
+            self.collect_entry_fee(input_guest, entry_fee)
             self.guest_list.append(input_guest)
             self.free_spaces -= 1
             if input_guest.entry_fee_paid == False:
+                input_guest.guest_tab += entry_fee
                 self.guests_owing_fee.append(input_guest)
+                print(f'Let {input_guest.name} know that the entry fee has been added to their tab')
         else:
             print("Sorry, not enough space.")
 

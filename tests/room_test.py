@@ -119,7 +119,7 @@ class TestRoom(unittest.TestCase):
         entry_fee = 10.00
         self.assertEqual(False, self.room_1.check_guest_has_sufficient_funds(self.guest_5, entry_fee))
 
-    def test_check_guest_added_to_guests_owing_fee_list(self):
+    def test_guest_added_to_guests_owing_fee_list(self):
         entry_fee = 10.00
         self.room_1.collect_entry_fee(self.guest_1, entry_fee)
         self.room_1.collect_entry_fee(self.guest_2, entry_fee)
@@ -129,3 +129,14 @@ class TestRoom(unittest.TestCase):
         self.room_1.add_guest_to_room(self.guest_5)
         self.assertEqual(3, len(self.room_1.guest_list))
         self.assertEqual(1, len(self.room_1.guests_owing_fee))
+
+    def test_entry_fee_added_to_guest_tab_if_not_paid_on_entry(self):
+        entry_fee = 10.00
+        self.room_1.collect_entry_fee(self.guest_1, entry_fee)
+        self.room_1.collect_entry_fee(self.guest_2, entry_fee)
+        self.room_1.collect_entry_fee(self.guest_5, entry_fee)
+        self.room_1.add_guest_to_room(self.guest_1)
+        self.room_1.add_guest_to_room(self.guest_2)
+        self.room_1.add_guest_to_room(self.guest_5)
+        self.assertEqual(1, len(self.room_1.guests_owing_fee))
+        self.assertEqual(10.00, self.guest_5.guest_tab)  
