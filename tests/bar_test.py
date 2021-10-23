@@ -32,6 +32,7 @@ class TestBar(unittest.TestCase):
     def test_check_guest_is_old_enough_to_buy_alcohol(self):
         self.assertEqual(True, self.bar_1.check_guest_is_old_enough_to_drink(self.guest_1))
 
+    #TESTS PASS BUT ARE AFFECTED BY USER INPUT IN TAB CHECK-- HOW TO SOLVE??
     # def test_serve_guest_drink__is_old_enough(self):
     #     self.bar_1.serve_guest_drink(self.guest_1, self.drink_1)
     #     self.assertEqual(15.50, self.guest_1.wallet)
