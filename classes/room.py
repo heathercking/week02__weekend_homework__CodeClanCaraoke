@@ -12,6 +12,12 @@ class Room:
         self.till = till
 
 
+    def check_room_has_capactiy(self, input_number_of_guests):
+        if input_number_of_guests <= self.free_spaces:
+            return True
+        else:
+            return False
+    
     def add_guest_to_room(self, input_guest):
         entry_fee = 10.00
         if self.free_spaces > 0:
@@ -43,12 +49,6 @@ class Room:
     
     def remove_song_from_room(self, input_song):
         self.song_list.remove(input_song)
-    
-    def check_room_has_capactiy(self, input_number_of_guests):
-        if input_number_of_guests <= self.free_spaces:
-            return True
-        else:
-            return False
 
     def view_room_song_list(self):
         for song in self.song_list:
