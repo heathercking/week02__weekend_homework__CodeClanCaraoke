@@ -12,15 +12,9 @@ class Guest:
         else:
             print("Goodbye!")
     
-    def check_sufficient_funds(self, input_fee):
-        if self.wallet >= input_fee:
-            return True
-        else:
-            return False
 
-    # def favourite_song_reaction(self):
-    #     return "Yaaaas"
+    def favourite_song_reaction(self):
+        return "Yaaaas"
 
-        
 
     

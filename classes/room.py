@@ -1,11 +1,12 @@
 class Room:
     
-    def __init__(self, input_name, input_max_capacity):
+    def __init__(self, input_name, input_max_capacity, till):
         self.name = input_name
         self.max_capacity = input_max_capacity
         self.guest_list = []
         self.free_spaces = self.max_capacity - len(self.guest_list)
         self.song_list = []
+        self.till = till
 
 
     def add_guest_to_room(self, input_guest):
@@ -47,9 +48,11 @@ class Room:
         for song in self.song_list:
             if input_song == song:
                 return "Yaaaas"
-            # if input_song != song:
-            #     return "No"
+    
+    def collect_entry_fee(self, input_guest, input_etnry_fee):
+        if self.check_guest_has_sufficient_funds:
+            input_guest.pay_entry_fee(input_etnry_fee)
+            self.till += input_etnry_fee
 
-    
-        
-    
+    def check_guest_has_sufficient_funds(self, input_guest, input_fee):
+        return input_guest.wallet >= input_fee

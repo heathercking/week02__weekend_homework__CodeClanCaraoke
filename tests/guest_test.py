@@ -13,8 +13,8 @@ class TestGuest(unittest.TestCase):
         self.guest_4 = Guest("Beaker", 17, 30.00)
         self.guest_5 = Guest("The Swedish Chef", 35, 5.00)
 
-        self.mykaraoke = Karaoke_Bar("CodeClan Caraoke")
-        self.room_1 = Room("Muppet Theatre", 20)
+        self.mykaraoke = Karaoke_Bar("CodeClan Caraoke", 100.00)
+        self.room_1 = Room("Muppet Theatre", 20, 100.00)
         self.song_2 = Song("Mah Na Mah Na")
     
     def test_guest_has_name(self):
@@ -31,16 +31,11 @@ class TestGuest(unittest.TestCase):
         self.assertEqual(10.00, self.guest_1.wallet)
 
     def test_guest_can_pay_entry_fee__insufficient_funds(self):
-        self.guest_5.pay_entry_fee(10.00)
+        entry_fee = 10.00
+        self.guest_5.pay_entry_fee(entry_fee)
         self.assertEqual(5.00, self.guest_5.wallet)
 
-    def test_guest_has_sufficient_funds__True(self):
-        entry_fee = 10.00
-        self.assertEqual(True, self.guest_1.check_sufficient_funds(entry_fee))
 
-    def test_guest_has_sufficient_funds__False(self):
-        entry_fee = 10.00
-        self.assertEqual(False, self.guest_5.check_sufficient_funds(entry_fee))
 
-    # def test_favourite_song_reaction(self):
-    #     self.assertEqual("Yaaaas", self.guest_1.favourite_song_reaction())
+    def test_favourite_song_reaction(self):
+        self.assertEqual("Yaaaas", self.guest_1.favourite_song_reaction())

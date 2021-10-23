@@ -6,9 +6,9 @@ from classes.song import Song
 class TestRoom(unittest.TestCase):
     
     def setUp(self):
-        self.room_1 = Room("Muppet Theatre", 20)
-        self.room_2 = Room("The Stage", 15)
-        self.room_3 = Room("The Attic", 2)
+        self.room_1 = Room("Muppet Theatre", 20, 100.00)
+        self.room_2 = Room("The Stage", 15, 100.00)
+        self.room_3 = Room("The Attic", 2, 100.00)
 
         self.guest_1 = Guest("Kermit the Frog", 32, 20.00)
         self.guest_2 = Guest("Miss Piggy", 29, 10.00)
@@ -93,11 +93,26 @@ class TestRoom(unittest.TestCase):
     #     self.room_1.add_song_to_room(self.song_1.name)  
     #     self.room_1.add_song_to_room(self.song_3.name) 
     #     self.assertEqual("Add it!", self.room_1.favourite_song_check(self.song_2.name))
-        
 
-
+    def test_room_has_till(self):
+        self.assertEqual(100.00, self.room_1.till)
     
-     
-    
+    def test_collect_entry_fee__customer_sufficient_funds(self):
+        entry_fee = 10.00
+        self.room_1.collect_entry_fee(self.guest_1, entry_fee)
+        self.assertEqual(110.00, self.room_1.till)
+        self.assertEqual(10.00, self.guest_1.wallet)
 
+    def test_collect_entry_fee__customer_insufficient_funds(self):
+        entry_fee = 10.00
+        self.room_1.collect_entry_fee(self.guest_5, entry_fee)
+        # self.assertEqual(100.00, self.room_1.till)
+        self.assertEqual(5.00, self.guest_5.wallet)
 
+    def test_guest_has_sufficient_funds__True(self):
+        entry_fee = 10.00
+        self.assertEqual(True, self.room_1.check_guest_has_sufficient_funds(self.guest_1, entry_fee))
+
+    def test_guest_has_sufficient_funds__False(self):
+        entry_fee = 10.00
+        self.assertEqual(False, self.room_1.check_guest_has_sufficient_funds(self.guest_5, entry_fee))

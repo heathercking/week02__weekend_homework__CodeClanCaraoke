@@ -6,11 +6,11 @@ from classes.guest import Guest
 class TestKaraokeBar(unittest.TestCase):
 
     def setUp(self):
-        self.mykaraoke = Karaoke_Bar("CodeClan Caraoke")
+        self.mykaraoke = Karaoke_Bar("CodeClan Caraoke", 100.00)
 
-        self.room_1 = Room("Muppet Theatre", 5)
-        self.room_2 = Room("The Stage", 3)
-        self.room_3 = Room("The Attic", 2)
+        self.room_1 = Room("Muppet Theatre", 5, 100.00)
+        self.room_2 = Room("The Stage", 3, 100.00)
+        self.room_3 = Room("The Attic", 2, 100.00)
 
         self.guest_1 = Guest("Kermit the Frog", 32, 20.00)
         self.guest_2 = Guest("Miss Piggy", 29, 10.00)
