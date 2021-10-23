@@ -57,3 +57,6 @@ class TestBar(unittest.TestCase):
     #     self.bar_1.serve_guest_drink(self.guest_1, self.drink_1)
     #     self.assertEqual(4.50, self.guest_1.guest_tab)
 
+    def test_guest_can_pay_tab(self):
+        pass
+
