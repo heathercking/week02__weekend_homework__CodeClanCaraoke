@@ -13,8 +13,8 @@ class TestRoom(unittest.TestCase):
         self.room_3 = Room("The Attic", 2, 100.00)
 
         self.guest_1 = Guest("Kermit the Frog", 32, 20.00, True)
-        self.guest_2 = Guest("Miss Piggy", 29, 10.00, False)
-        self.guest_3 = Guest("Fozzie the Bear", 40, 15.00, False)
+        self.guest_2 = Guest("Miss Piggy", 29, 10.00, True)
+        self.guest_3 = Guest("Fozzie the Bear", 40, 15.00, True)
         self.guest_4 = Guest("Beaker", 17, 30.00, False)
         self.guest_5 = Guest("The Swedish Chef", 35, 5.00, False)
 
@@ -47,7 +47,7 @@ class TestRoom(unittest.TestCase):
     def test_add_guest_to_room__not_enough_space(self):
         self.room_3.add_guest_to_room(self.guest_1)
         self.room_3.add_guest_to_room(self.guest_2)
-        self.room_3.add_guest_to_room(self.guest_2)
+        self.room_3.add_guest_to_room(self.guest_3)
         self.assertEqual(2, len(self.room_3.guest_list))
     
     def test_remove_guest_from_room(self):
@@ -118,3 +118,14 @@ class TestRoom(unittest.TestCase):
     def test_guest_has_sufficient_funds__False(self):
         entry_fee = 10.00
         self.assertEqual(False, self.room_1.check_guest_has_sufficient_funds(self.guest_5, entry_fee))
+
+    def test_check_guest_added_to_guests_owing_fee_list(self):
+        entry_fee = 10.00
+        self.room_1.collect_entry_fee(self.guest_1, entry_fee)
+        self.room_1.collect_entry_fee(self.guest_2, entry_fee)
+        self.room_1.collect_entry_fee(self.guest_5, entry_fee)
+        self.room_1.add_guest_to_room(self.guest_1)
+        self.room_1.add_guest_to_room(self.guest_2)
+        self.room_1.add_guest_to_room(self.guest_5)
+        self.assertEqual(3, len(self.room_1.guest_list))
+        self.assertEqual(1, len(self.room_1.guests_owing_fee))
