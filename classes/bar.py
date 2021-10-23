@@ -27,3 +27,6 @@ class Bar:
 
     def add_new_drink_to_stock(self, input_drink):
         self.drinks_inventory.append(input_drink)
+    
+    def increase_stock_level_of_a_drink(self, input_drink, input_quantity):
+        input_drink.stock_level += input_quantity

@@ -66,5 +66,8 @@ class TestBar(unittest.TestCase):
         self.bar_1.add_new_drink_to_stock(self.drink_1)
         self.assertEqual(1, len(self.bar_1.drinks_inventory))
 
-    
+    def test_increase_stock_level_of_a_drink(self):
+        self.bar_1.add_new_drink_to_stock(self.drink_1)
+        self.bar_1.increase_stock_level_of_a_drink(self.drink_1, 1)
+        self.assertEqual(11, self.drink_1.stock_level)
 
