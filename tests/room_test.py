@@ -40,6 +40,12 @@ class TestRoom(unittest.TestCase):
     #     self.room_1.add_guest_to_room(guests_to_add)
     #     self.assertEqual(2, len(self.room_1.guest_list))
 
+    def test_check_room_has_capacity_for_all_guests__True(self):
+        self.assertEqual(True, self.room_1.check_room_has_capactiy(20))
+    
+    def test_check_room_has_capacity_for_all_guests__False(self):
+        self.assertEqual(False, self.room_1.check_room_has_capactiy(25))
+
     def test_add_guest_to_room__free_spaces_decrease(self):
         self.room_1.add_guest_to_room(self.guest_1)
         self.assertEqual(19, self.room_1.free_spaces)
@@ -72,12 +78,6 @@ class TestRoom(unittest.TestCase):
         self.room_1.add_song_to_room(self.song_2)      
         self.room_1.remove_song_from_room(self.song_1)
         self.assertEqual(1, len(self.room_1.song_list))
-
-    def test_check_room_has_capacity_for_all_guests__True(self):
-        self.assertEqual(True, self.room_1.check_room_has_capactiy(20))
-    
-    def test_check_room_has_capacity_for_all_guests__False(self):
-        self.assertEqual(False, self.room_1.check_room_has_capactiy(25))
 
     def test_view_room_song_list__contains_favourite_song(self):
         self.room_1.add_song_to_room(self.song_1)  

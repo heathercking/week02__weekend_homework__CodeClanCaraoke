@@ -1,12 +1,12 @@
 import unittest
-from classes.karaoke_bar import Karaoke_Bar
+from classes.bar import Bar
 from classes.room import Room
 from classes.guest import Guest
 
-class TestKaraokeBar(unittest.TestCase):
+class TestBar(unittest.TestCase):
 
     def setUp(self):
-        self.mykaraoke = Karaoke_Bar("CodeClan Caraoke", 100.00)
+        self.bar_1 = Bar("CodeClan Caraoke", 100.00)
 
         self.room_1 = Room("Muppet Theatre", 5, 100.00)
         self.room_2 = Room("The Stage", 3, 100.00)
@@ -19,12 +19,11 @@ class TestKaraokeBar(unittest.TestCase):
         self.guest_5 = Guest("The Swedish Chef", 35, 5.00, False)
 
 
-    def test_karaoke_bar_has_name(self):
-        self.assertEqual("CodeClan Caraoke", self.mykaraoke.name)
+    def test_bar_has_name(self):
+        self.assertEqual("CodeClan Caraoke", self.bar_1.name)
     
-    # def test_capacity_of_all_rooms(self):
-    #     self.room_1.add_guest_to_room
-    #     all_rooms = [self.room_1, self.room_2, self.room_3]
+    def test_bar_has_tab(self):
+        self.assertEqual(0, self.bar_1.bar_tab)
 
         
 

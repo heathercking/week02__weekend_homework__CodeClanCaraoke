@@ -1,6 +1,6 @@
 import unittest
 from classes.guest import Guest
-from classes.karaoke_bar import Karaoke_Bar
+from classes.bar import Bar
 from classes.room import Room
 from classes.song import Song
 
@@ -13,7 +13,7 @@ class TestGuest(unittest.TestCase):
         self.guest_4 = Guest("Beaker", 17, 30.00, False)
         self.guest_5 = Guest("The Swedish Chef", 35, 5.00, False)
 
-        self.mykaraoke = Karaoke_Bar("CodeClan Caraoke", 100.00)
+        self.mykaraoke = Bar("CodeClan Caraoke", 100.00)
         self.room_1 = Room("Muppet Theatre", 20, 100.00)
         self.song_2 = Song("Mah Na Mah Na")
     
