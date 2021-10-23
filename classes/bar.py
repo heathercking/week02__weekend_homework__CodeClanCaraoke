@@ -15,7 +15,7 @@ class Bar:
             else:
                 input_guest.buy_drink(input_drink)
 
-    def add_drink_to_tab_check(self):
+    def add_drink_to_tab_check(self, mock_input):
         pay_by_tab = input("Would you like to add this to your tab? ")
         if pay_by_tab == "yes":
             return True
