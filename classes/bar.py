@@ -43,3 +43,4 @@ class Bar:
         for drink in self.drinks_inventory:
             total_value += drink.price * drink.stock_level
         return total_value
+        

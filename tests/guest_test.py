@@ -16,7 +16,7 @@ class TestGuest(unittest.TestCase):
 
         self.mykaraoke = Bar("CodeClan Caraoke", 100.00)
         self.room_1 = Room("Muppet Theatre", 20, 100.00)
-        self.song_2 = Song("Mah Na Mah Na")
+        self.song_2 = Song("Mah Na Mah Na", "Film 1")
 
         self.drink_1 = Drink("wine", 4.50, 5, 10)
         self.drink_2 = Drink("beer", 3.50, 4, 20)

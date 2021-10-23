@@ -27,7 +27,7 @@ class Room:
             if input_guest.entry_fee_paid == False:
                 input_guest.guest_tab += entry_fee
                 self.guests_owing_fee.append(input_guest)
-                print(f'Let {input_guest.name} know that the entry fee has been added to their tab')
+                print(f'Remind {input_guest.name} that tabs must be settled by end of night.')
         else:
             print("Sorry, not enough space.")
 
@@ -50,9 +50,16 @@ class Room:
     def remove_song_from_room(self, input_song):
         self.song_list.remove(input_song)
 
-    def view_room_song_list(self):
+    def view_room_song_list(self):  # how do you test this?
         for song in self.song_list:
-            print(song.name) # how do you test this?!
+            print(song.name) 
+        
+    def view_room_songs_by_film(self, input_film): # could be changed to filter by genre etc.
+        songs_by_film = []
+        for song in self.song_list:
+            if song.film == input_film:
+                songs_by_film.append(song.name)
+        return songs_by_film
 
     def favourite_song_check(self, input_song):
         for song in self.song_list:

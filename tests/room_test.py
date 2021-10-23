@@ -19,11 +19,11 @@ class TestRoom(unittest.TestCase):
         self.guest_4 = Guest("Beaker", 17, 30.00, False)
         self.guest_5 = Guest("The Swedish Chef", 35, 5.00, False)
 
-        self.song_1 = Song("The Muppet Show Theme")
-        self.song_2 = Song("Mah Na Mah Na")
-        self.song_3 = Song("Together Again")
-        self.song_4 = Song("Happiness Hotel")
-        self.song_5 = Song("It's Not Easy Being Green")
+        self.song_1 = Song("The Muppet Show Theme", "The original show")
+        self.song_2 = Song("Mah Na Mah Na", "Film 1")
+        self.song_3 = Song("Together Again", "Film 2")
+        self.song_4 = Song("Happiness Hotel", "Film 3")
+        self.song_5 = Song("It's Not Easy Being Green", "Film 4")
 
         self.drink_1 = Drink("wine", 4.50, 5, 10)
         self.drink_2 = Drink("beer", 3.50, 4, 20)
@@ -88,6 +88,12 @@ class TestRoom(unittest.TestCase):
         self.room_1.add_song_to_room(self.song_2)
         self.room_1.add_song_to_room(self.song_3) 
         self.room_1.view_room_song_list()
+
+    def test_view_room_songs_by_film(self):
+        self.room_1.add_song_to_room(self.song_1)  
+        self.room_1.add_song_to_room(self.song_2)
+        self.room_1.add_song_to_room(self.song_3) 
+        self.room_1.view_room_songs_by_film("Film 1")
 
     def test_favourite_song_check__favourite_song_in_list(self):
         self.room_1.add_song_to_room(self.song_1)  

@@ -46,8 +46,6 @@ class TestBar(unittest.TestCase):
         self.assertEqual(30.00, self.guest_4.wallet)
 
 
-
-    
     # def test_add_drink_to_tab_check__True(self, mock_input):
     #     with mock.patch(builtins.input, return_value="yes"):
     #         self.assertEqual(True, self.bar_1.add_drink_to_tab_check(mock_input))
@@ -58,6 +56,7 @@ class TestBar(unittest.TestCase):
     # def test_serve_guest_drink__add_to_guest_tab(self):
     #     self.bar_1.serve_guest_drink(self.guest_1, self.drink_1)
     #     self.assertEqual(4.50, self.guest_1.guest_tab)
+
 
     def test_guest_can_pay_tab(self):
         pass
