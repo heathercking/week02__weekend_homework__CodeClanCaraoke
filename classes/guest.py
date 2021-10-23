@@ -6,13 +6,8 @@ class Guest:
         self.wallet = wallet
 
     def pay_entry_fee(self, input_fee):
-        # if self.check_sufficient_funds:
-        if self.wallet >= input_fee:
-            self.wallet -= input_fee
-        else:
-            print("Goodbye!")
+        self.wallet -= input_fee
     
-
     def favourite_song_reaction(self):
         return "Yaaaas"
 

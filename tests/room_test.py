@@ -3,6 +3,8 @@ from classes.room import Room
 from classes.guest import Guest
 from classes.song import Song
 
+import pdb
+
 class TestRoom(unittest.TestCase):
     
     def setUp(self):
@@ -106,7 +108,7 @@ class TestRoom(unittest.TestCase):
     def test_collect_entry_fee__customer_insufficient_funds(self):
         entry_fee = 10.00
         self.room_1.collect_entry_fee(self.guest_5, entry_fee)
-        # self.assertEqual(100.00, self.room_1.till)
+        self.assertEqual(100.00, self.room_1.till)
         self.assertEqual(5.00, self.guest_5.wallet)
 
     def test_guest_has_sufficient_funds__True(self):

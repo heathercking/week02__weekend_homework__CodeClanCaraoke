@@ -1,3 +1,5 @@
+import pdb
+
 class Room:
     
     def __init__(self, input_name, input_max_capacity, till):
@@ -49,10 +51,10 @@ class Room:
             if input_song == song:
                 return "Yaaaas"
     
-    def collect_entry_fee(self, input_guest, input_etnry_fee):
-        if self.check_guest_has_sufficient_funds:
-            input_guest.pay_entry_fee(input_etnry_fee)
-            self.till += input_etnry_fee
+    def collect_entry_fee(self, input_guest, input_entry_fee):
+        if self.check_guest_has_sufficient_funds(input_guest, input_entry_fee):
+            input_guest.pay_entry_fee(input_entry_fee)
+            self.till += input_entry_fee
 
     def check_guest_has_sufficient_funds(self, input_guest, input_fee):
         return input_guest.wallet >= input_fee
