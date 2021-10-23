@@ -3,6 +3,7 @@ from classes.guest import Guest
 from classes.bar import Bar
 from classes.room import Room
 from classes.song import Song
+from classes.drink import Drink
 
 class TestGuest(unittest.TestCase):
     
@@ -16,6 +17,9 @@ class TestGuest(unittest.TestCase):
         self.mykaraoke = Bar("CodeClan Caraoke", 100.00)
         self.room_1 = Room("Muppet Theatre", 20, 100.00)
         self.song_2 = Song("Mah Na Mah Na")
+
+        self.drink_1 = Drink("wine", 4.50, 5)
+        self.drink_2 = Drink("beer", 3.50, 4)
     
     def test_guest_has_name(self):
         self.assertEqual("Kermit the Frog", self.guest_1.name)
@@ -40,3 +44,7 @@ class TestGuest(unittest.TestCase):
         entry_fee = 10.00
         self.guest_2.pay_entry_fee(entry_fee)
         self.assertEqual(True, self.guest_2.entry_fee_paid)
+
+    def test_guest_can_buy_drink(self):
+        self.guest_1.buy_drink(self.drink_1)
+        self.assertEqual(15.50, self.guest_1.wallet)

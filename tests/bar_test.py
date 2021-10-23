@@ -2,6 +2,7 @@ import unittest
 from classes.bar import Bar
 from classes.room import Room
 from classes.guest import Guest
+from classes.drink import Drink
 
 class TestBar(unittest.TestCase):
 

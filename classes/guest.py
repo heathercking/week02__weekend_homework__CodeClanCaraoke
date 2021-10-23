@@ -13,7 +13,6 @@ class Guest:
     
     def favourite_song_reaction(self):
         return "Yaaaas"
-    
 
-
-    
+    def buy_drink(self, input_drink):
+        self.wallet -= input_drink.price
