@@ -8,9 +8,11 @@ class Guest:
 
     def pay_entry_fee(self, input_fee):
         self.wallet -= input_fee
+        self.entry_fee_paid = True
     
     def favourite_song_reaction(self):
         return "Yaaaas"
+    
 
 
     

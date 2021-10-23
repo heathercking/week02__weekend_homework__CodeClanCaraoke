@@ -8,9 +8,9 @@ class TestGuest(unittest.TestCase):
     
     def setUp(self):
         self.guest_1 = Guest("Kermit the Frog", 32, 20.00, True)
-        self.guest_2 = Guest("Miss Piggy", 29, 10.00, True)
-        self.guest_3 = Guest("Fozzie the Bear", 40, 15.00, True)
-        self.guest_4 = Guest("Beaker", 17, 30.00, True)
+        self.guest_2 = Guest("Miss Piggy", 29, 10.00, False)
+        self.guest_3 = Guest("Fozzie the Bear", 40, 15.00, False)
+        self.guest_4 = Guest("Beaker", 17, 30.00, False)
         self.guest_5 = Guest("The Swedish Chef", 35, 5.00, False)
 
         self.mykaraoke = Karaoke_Bar("CodeClan Caraoke", 100.00)
@@ -35,3 +35,8 @@ class TestGuest(unittest.TestCase):
     
     def test_guest_has_entry_fee_paid_status(self):
         self.assertEqual(True, self.guest_1.entry_fee_paid)
+    
+    def test_entry_fee_paid_status_updates_when_fee_paid(self):
+        entry_fee = 10.00
+        self.guest_2.pay_entry_fee(entry_fee)
+        self.assertEqual(True, self.guest_2.entry_fee_paid)
