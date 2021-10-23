@@ -18,8 +18,8 @@ class TestGuest(unittest.TestCase):
         self.room_1 = Room("Muppet Theatre", 20, 100.00)
         self.song_2 = Song("Mah Na Mah Na")
 
-        self.drink_1 = Drink("wine", 4.50, 5)
-        self.drink_2 = Drink("beer", 3.50, 4)
+        self.drink_1 = Drink("wine", 4.50, 5, 10)
+        self.drink_2 = Drink("beer", 3.50, 4, 20)
     
     def test_guest_has_name(self):
         self.assertEqual("Kermit the Frog", self.guest_1.name)

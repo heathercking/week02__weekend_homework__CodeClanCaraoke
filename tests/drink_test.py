@@ -6,8 +6,8 @@ from classes.drink import Drink
 
 class TestDrink(unittest.TestCase):
     def setUp(self):
-        self.drink_1 = Drink("wine", 4.50, 5)
-        self.drink_2 = Drink("beer", 3.50, 4)
+        self.drink_1 = Drink("wine", 4.50, 5, 10)
+        self.drink_2 = Drink("beer", 3.50, 4, 20)
 
     def test_drink_has_name(self):
         self.assertEqual("wine", self.drink_1.name)
@@ -17,3 +17,6 @@ class TestDrink(unittest.TestCase):
 
     def test_drink_has_alcohol_level(self):
         self.assertEqual(5, self.drink_1.alcohol_level)
+
+    def test_drink_has_stock_level(self):
+        self.assertEqual(10, self.drink_1.stock_level)

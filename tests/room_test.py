@@ -25,8 +25,8 @@ class TestRoom(unittest.TestCase):
         self.song_4 = Song("Happiness Hotel")
         self.song_5 = Song("It's Not Easy Being Green")
 
-        self.drink_1 = Drink("wine", 4.50, 5)
-        self.drink_2 = Drink("beer", 3.50, 4)
+        self.drink_1 = Drink("wine", 4.50, 5, 10)
+        self.drink_2 = Drink("beer", 3.50, 4, 20)
 
 
     def test_room_has_name(self):

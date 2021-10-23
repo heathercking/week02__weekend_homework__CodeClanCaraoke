@@ -23,8 +23,8 @@ class TestBar(unittest.TestCase):
         self.guest_4 = Guest("Beaker", 17, 30.00, False)
         self.guest_5 = Guest("The Swedish Chef", 35, 5.00, False)
 
-        self.drink_1 = Drink("wine", 4.50, 5)
-        self.drink_2 = Drink("beer", 3.50, 4)
+        self.drink_1 = Drink("wine", 4.50, 5, 10)
+        self.drink_2 = Drink("beer", 3.50, 4, 20)
 
 
     def test_bar_has_name(self):
@@ -37,18 +37,20 @@ class TestBar(unittest.TestCase):
         self.assertEqual(True, self.bar_1.check_guest_is_old_enough_to_drink(self.guest_1))
 
     #TESTS PASS BUT ARE AFFECTED BY USER INPUT IN TAB CHECK-- HOW TO SOLVE??
-    # def test_serve_guest_drink__is_old_enough(self):
-    #     self.bar_1.serve_guest_drink(self.guest_1, self.drink_1)
-    #     self.assertEqual(15.50, self.guest_1.wallet)
+    def test_serve_guest_drink__is_old_enough(self):
+        self.bar_1.serve_guest_drink(self.guest_1, self.drink_1)
+        self.assertEqual(15.50, self.guest_1.wallet)
 
-    # def test_serve_guest_drink__not_old_enough(self):
-    #     self.bar_1.serve_guest_drink(self.guest_4, self.drink_1)
-    #     self.assertEqual(30.00, self.guest_4.wallet)
+    def test_serve_guest_drink__not_old_enough(self):
+        self.bar_1.serve_guest_drink(self.guest_4, self.drink_1)
+        self.assertEqual(30.00, self.guest_4.wallet)
+
+
 
     
-    def test_add_drink_to_tab_check__True(self, mock_input):
-        with mock.patch(builtins.input, return_value="yes"):
-            self.assertEqual(True, self.bar_1.add_drink_to_tab_check(mock_input))
+    # def test_add_drink_to_tab_check__True(self, mock_input):
+    #     with mock.patch(builtins.input, return_value="yes"):
+    #         self.assertEqual(True, self.bar_1.add_drink_to_tab_check(mock_input))
     
     # def test_add_drink_to_tab_check__False(self):
     #     self.assertEqual(False, self.bar_1.add_drink_to_tab_check())
@@ -59,4 +61,10 @@ class TestBar(unittest.TestCase):
 
     def test_guest_can_pay_tab(self):
         pass
+    
+    def test_add_new_drink_to_stock(self):
+        self.bar_1.add_new_drink_to_stock(self.drink_1)
+        self.assertEqual(1, len(self.bar_1.drinks_inventory))
+
+    
 
