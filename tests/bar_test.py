@@ -70,4 +70,14 @@ class TestBar(unittest.TestCase):
         self.bar_1.add_new_drink_to_stock(self.drink_1)
         self.bar_1.increase_stock_level_of_a_drink(self.drink_1, 1)
         self.assertEqual(11, self.drink_1.stock_level)
+    
+    def test_get_total_drinks_stock_level(self):
+        self.bar_1.add_new_drink_to_stock(self.drink_1)
+        self.bar_1.add_new_drink_to_stock(self.drink_2)
+        self.assertEqual(30, self.bar_1.get_total_drinks_stock_level())
+    
+    def test_get_total_value_of_drinks_stock(self):
+        self.bar_1.add_new_drink_to_stock(self.drink_1)
+        self.bar_1.add_new_drink_to_stock(self.drink_2)
+        self.assertEqual(115.00, self.bar_1.get_total_value_of_drinks_stock())
 

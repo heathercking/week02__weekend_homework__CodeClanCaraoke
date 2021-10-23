@@ -30,3 +30,16 @@ class Bar:
     
     def increase_stock_level_of_a_drink(self, input_drink, input_quantity):
         input_drink.stock_level += input_quantity
+    
+    def get_total_drinks_stock_level(self):
+        total_stock = 0
+        for drink in self.drinks_inventory:
+            total_stock += drink.stock_level
+            print(f'{drink.name} = {drink.stock_level}')
+        return total_stock
+    
+    def get_total_value_of_drinks_stock(self):
+        total_value = 0
+        for drink in self.drinks_inventory:
+            total_value += drink.price * drink.stock_level
+        return total_value
