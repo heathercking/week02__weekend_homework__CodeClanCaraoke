@@ -36,28 +36,32 @@ class TestBar(unittest.TestCase):
     def test_check_guest_is_old_enough_to_buy_alcohol(self):
         self.assertEqual(True, self.bar_1.check_guest_is_old_enough_to_drink(self.guest_1))
 
-    #TESTS PASS BUT ARE AFFECTED BY USER INPUT IN TAB CHECK-- HOW TO SOLVE??
+    def test_serve_guest_drink__pay_by_tab__True(self):
+        input_pay_by_tab = "yes"
+        self.bar_1.serve_guest_drink(input_pay_by_tab, self.guest_1, self.drink_1)
+        self.assertEqual(4.50, self.guest_1.guest_tab)
+        self.assertEqual(20.00, self.guest_1.wallet)
+
+    def test_serve_guest_drink__pay_by_tab__False(self):
+        input_pay_by_tab = "no"
+        self.bar_1.serve_guest_drink(input_pay_by_tab, self.guest_1, self.drink_1)
+        self.assertEqual(0.00, self.guest_1.guest_tab)
+        self.assertEqual(15.50, self.guest_1.wallet)
+
+     # def test_add_drink_to_tab_check__True(self, mock_input):
+    #     with mock.patch(builtins.input, return_value="yes"):
+    #         self.assertEqual(True, self.bar_1.add_drink_to_tab_check(mock_input))
+
     def test_serve_guest_drink__is_old_enough(self):
-        self.bar_1.serve_guest_drink(self.guest_1, self.drink_1)
+        input_pay_by_tab = "no"
+        self.bar_1.serve_guest_drink(input_pay_by_tab, self.guest_1, self.drink_1)
         self.assertEqual(15.50, self.guest_1.wallet)
 
     def test_serve_guest_drink__not_old_enough(self):
-        self.bar_1.serve_guest_drink(self.guest_4, self.drink_1)
+        input_pay_by_tab = "no"
+        self.bar_1.serve_guest_drink(input_pay_by_tab, self.guest_4, self.drink_1)
         self.assertEqual(30.00, self.guest_4.wallet)
-
-
-    # def test_add_drink_to_tab_check__True(self, mock_input):
-    #     with mock.patch(builtins.input, return_value="yes"):
-    #         self.assertEqual(True, self.bar_1.add_drink_to_tab_check(mock_input))
     
-    # def test_add_drink_to_tab_check__False(self):
-    #     self.assertEqual(False, self.bar_1.add_drink_to_tab_check())
-
-    # def test_serve_guest_drink__add_to_guest_tab(self):
-    #     self.bar_1.serve_guest_drink(self.guest_1, self.drink_1)
-    #     self.assertEqual(4.50, self.guest_1.guest_tab)
-
-
     def test_guest_can_pay_tab(self):
         pass
     
