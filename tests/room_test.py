@@ -39,10 +39,10 @@ class TestRoom(unittest.TestCase):
         self.room_1.add_guest_to_room(self.guest_1)
         self.assertEqual(1, len(self.room_1.guest_list))
 
-    # def test_add_multiple_guests_to_room(self):
-    #     guests_to_add = [self.guest_1, self.guest_2]
-    #     self.room_1.add_guest_to_room(guests_to_add)
-    #     self.assertEqual(2, len(self.room_1.guest_list))
+    def test_add_multiple_guests_to_room(self):
+        guests_to_add = [self.guest_1, self.guest_2]
+        self.room_1.add_multiple_guests_to_room(guests_to_add)
+        self.assertEqual(2, len(self.room_1.guest_list))
 
     def test_check_room_has_capacity_for_all_guests__True(self):
         self.assertEqual(True, self.room_1.check_room_has_capactiy(20))

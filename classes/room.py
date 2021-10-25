@@ -31,14 +31,13 @@ class Room:
         else:
             print("Sorry, not enough space.")
 
-    # def add_guest_to_room(self, input_guests):
-    #     if self.free_spaces > 0:
-    #         for guest in input_guests:
-    #             self.guest_list.append(guest)
-    #             self.free_spaces -= 1
-    #     else:
-    #         print("Sorry, not enough space.")   
-
+    def add_multiple_guests_to_room(self, input_guests):
+        if self.free_spaces > 0:
+            for guest in input_guests:
+                self.guest_list.append(guest)
+                self.free_spaces -= 1
+        else:
+            print("Sorry, not enough space.")   
 
     def remove_guest_from_room(self, input_guest):
         self.guest_list.remove(input_guest)
